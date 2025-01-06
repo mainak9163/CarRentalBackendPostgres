@@ -1,0 +1,44 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+enum Pricing {
+    WEEKLY
+    MONTHLY
+    QUARTERLY
+}
+
+model Customer {
+    id           String    @id @default(uuid())
+    name         String
+    email        String    @unique
+    refreshToken String? // Field for storing the refresh token
+    password     String
+    bookings     Booking[]
+}
+
+model Car {
+    id                 String    @id @default(uuid())
+    model              String
+    image              String
+    registrationNumber String    @unique
+    type               String
+    booked             Boolean   @default(false)
+    pricing            Pricing
+    bookings           Booking[]
+}
+
+model Booking {
+    id         String   @id @default(uuid())
+    carId      String
+    customerId String
+    duration   String
+    finalPrice Float
+    car        Car      @relation(fields: [carId], references: [id])
+    customer   Customer @relation(fields: [customerId], references: [id])
+}
