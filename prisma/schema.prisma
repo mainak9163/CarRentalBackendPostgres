@@ -29,7 +29,7 @@ model Car {
     registrationNumber String    @unique
     type               String
     booked             Boolean   @default(false)
-    pricing            Float
+    pricing            String
     bookings           Booking[]
 }
 
