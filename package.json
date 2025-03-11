@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "build/api/index.js",
   "scripts": {
-    "start": "node build/api/index.js",
+    "start": "prisma generate && node build/api/index.js",
     "dev": "ts-node-dev api/index.ts",
     "build": "tsc"
   },

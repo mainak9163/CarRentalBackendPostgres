@@ -38,3 +38,12 @@ export const bookCar = async (req: Request, res: Response) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+export const getAllBookings = async (req: Request, res: Response) => { 
+  try {
+    const bookings = await prisma.booking.findMany();
+    res.status(200).json(bookings);
+  } catch (error:any) {
+    res.status(400).json({ error: error.message });
+  }
+}
