@@ -31,7 +31,7 @@ model Booking {
     carId      String
     customerId String
     duration   String
-    finalPrice Float
+    finalPrice String
     car        Car      @relation(fields: [carId], references: [id])
     customer   Customer @relation(fields: [customerId], references: [id])
 }
