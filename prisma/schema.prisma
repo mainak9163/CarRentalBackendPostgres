@@ -7,19 +7,12 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-enum Pricing {
-    WEEKLY
-    MONTHLY
-    QUARTERLY
-}
-
 model Customer {
-    id           String    @id @default(uuid())
-    name         String
-    email        String    @unique
-    refreshToken String? // Field for storing the refresh token
-    password     String
-    bookings     Booking[]
+    id       String    @id @default(uuid())
+    name     String
+    email    String    @unique
+    password String
+    bookings Booking[]
 }
 
 model Car {
