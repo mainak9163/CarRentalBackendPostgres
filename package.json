@@ -5,7 +5,8 @@
   "scripts": {
     "start": "prisma generate && node build/api/index.js",
     "dev": "ts-node-dev api/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+     "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.1.0",
