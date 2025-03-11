@@ -1,6 +1,6 @@
 import express from 'express';
-import carRoutes from './routes/carRoutes';
-import customerRoutes from './routes/customerRoutes';
+import carRoutes from '../routes/carRoutes';
+import customerRoutes from '../routes/customerRoutes';
 import bookingRoutes from './routes/bookingRoutes';
 
 const app = express();
