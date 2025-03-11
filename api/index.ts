@@ -2,8 +2,10 @@ import express from 'express';
 import carRoutes from '../routes/carRoutes';
 import customerRoutes from '../routes/customerRoutes';
 import bookingRoutes from '../routes/bookingRoutes';
+import cors from 'cors'; 
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/cars', carRoutes);
